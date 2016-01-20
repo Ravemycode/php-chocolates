@@ -1,3 +1,13 @@
+<?php
+
+  print_r($_POST);
+
+  // $_POST è la superglobal che si porta dietro tutti i dati della sessione
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
