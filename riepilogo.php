@@ -7,11 +7,8 @@ include 'libs/carrello.php';
 
 
 print_r($_SESSION);
-/*if (isset()) {
-  # code...
-}
 
-$datiUtente =*/
-
+// 1. LEGGERE DATI DA $_SESSION
+// 2. GENERARE HTML
 
 ?>

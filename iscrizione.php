@@ -12,7 +12,6 @@ $datiPost = $_POST;
 // aggiornamento sessione
 //$_SESSION['carrello'] = $carrello;
 $_SESSION['utente'] = $datiPost;
-
 */
 
 
@@ -42,7 +41,7 @@ $_SESSION['utente'] = $datiPost;
       <div class="row">
         <div class="col-md-6">
 
-          <form method="POST" action="">
+          <form method="POST" action="aggiungi_utente.php">
             <div class="form-group">
               <label for="nome">Nome</label>
               <input type="text" class="form-control" name="nome" placeholder="nome">
