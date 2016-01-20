@@ -1,8 +1,20 @@
 <?php
 
-  print_r($_POST);
+  session_start();
 
   // $_POST è la superglobal che si porta dietro tutti i dati della sessione
+  print_r($_POST);
+
+/*
+RIFARE QUESTO BLOCCO
+$datiPost = $_POST;
+
+// aggiornamento sessione
+//$_SESSION['carrello'] = $carrello;
+$_SESSION['utente'] = $datiPost;
+
+*/
+
 
 ?>
 
