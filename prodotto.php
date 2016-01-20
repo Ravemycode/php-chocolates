@@ -1,27 +1,8 @@
 <?php
-
-$elencoprodotti = file_get_contents('data/prodotti.json', true);
-
-
-print_r(json_decode($elencoprodotti));
-
-foreach ($elencoprodotti as $chiave => $elemento) {
-  echo $chiave . : $elemento;
-}
-
-$div_cioccolate ='<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading"><a href="/prodotto.php"><?php echo $codice; ?></a></div>
-    <div class="panel-body">
-      <img src=<? $url_immagine ?> />
-    </div>
-  </div>
-</div>';
-
-
+$guana = "GUANA - cioccolato fondente";
+$descrizione = "Tavoletta di cioccolato fondente extra al 74%";
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -51,8 +32,8 @@ $div_cioccolate ='<div class="col-md-4">
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-              <li><a href="/prodotti.html">Prodotti</a></li>
+              <li><a href="/index.html">Home <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="/prodotti.html">Prodotti</a></li>
               <li><a href="/dove-siamo.html">La filosofia</a></li>
               <li><a href="/chi-siamo.html">Chi siamo</a></li>
             </ul>
@@ -64,35 +45,36 @@ $div_cioccolate ='<div class="col-md-4">
       </nav>
     </header>
     <main>
-      <div class="container-fluid">
-        <div class="row banner-home">
-          <div class="col-md-3">
-            <img src="https://c2.staticflickr.com/6/5105/5626762538_406270541c_b.jpg">
-          </div>
-          <div class="col-md-9">
-            <h1>Il cioccolato più buono? Lo trovi da noi!</h1>
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>MAISON DU CHOCOLAT - GUANA</h1>
         </div>
-        <div class="row">
-
-          <!-- ARRAY CON DIV  -->
-
-          <!--<div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading"><a href="/prodotto.php">Maison du chocolat</a></div>
-              <div class="panel-body">
-                <img src="https://c1.staticflickr.com/3/2369/2458986998_c81485c2db_z.jpg?zz=1" />
-              </div>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="https://c1.staticflickr.com/3/2369/2458986998_c81485c2db_z.jpg?zz=1">
+        </div>
+        <div class="col-md-6">
+          <h2><?php echo $guana; ?></h2>
+          <h3><?php echo $descrizione; ?></h3>
+          <div>
+            <strong>Ingredienti</strong>: pasta di cacao, zucchero di canna, burro di cacao, vaniglia. Cacao min. 74%. Può contenere tracce di nocciole, mandorle, pistacchi, noci, latte.
           </div>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading"><a href="/product1.html">Mink</a></div>
-              <div class="panel-body">
-                <img src="https://c1.staticflickr.com/5/4027/4429686185_0e5ac89112_z.jpg?zz=1">
-              </div>
-            </div>
-          </div>-->
+          <div>
+            <strong>Conservazione</strong>: conservare in luogo fresco e asciutto, max 18°C. Degustare a temperatura ambiente.
+          </div>
+          <div>
+            <strong>Scadenza</strong>: 14 mesi
+          </div>
+          <div>
+            <strong>Dimensioni</strong>: 9 x 15,5 x 1,2 cm
+          </div>
+          <div>
+            <strong>Peso netto</strong>: 50 g
+          </div>
+          <div>
+            <strong>Prezzo</strong>: 5,00 €
+          </div>
         </div>
       </div>
     </main>
