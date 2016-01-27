@@ -41,6 +41,12 @@ function getTotaliCarrello() {
   $quantita = 0;
 
   foreach($prodottiCarrello as $rigaCarrello) {
+    // SPIEGAZIONE SEMPLIFICATA ORIGINALE
+    /*$prodotto = $rigaCarrello['prodotto'];
+    $prezzo = $prodotto['prezzo'];
+    $totale += $prezzo;*/
+
+    // ORIGINALE
     $totale += $rigaCarrello['prodotto']['prezzo'];
     $quantita += $rigaCarrello['quantita'];
   }

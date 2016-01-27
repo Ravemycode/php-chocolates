@@ -8,7 +8,7 @@ function inizializzaListaProdotti() {
   return json_decode($listaProdotti, true);
 }
 
-function estraiProdottoDaLista(array $listaProdotti, $codice) {
+function estraiProdottoDaLista(array $listaProdotti, $codice /* SE param opzionale: $param = 0*/) {
 
   foreach($listaProdotti as $prodotto) {
     if ($prodotto['codice'] == $codice) {
