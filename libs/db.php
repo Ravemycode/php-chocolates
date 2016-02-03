@@ -11,6 +11,12 @@ function inizializzaListaProdotti() {
     return $db->query('SELECT * FROM prodotti');
 }
 
+// LISTA PRODOTTI CODICE MINK
+function inizializzaListaProdottiMink() {
+  $db = creaConnessionePDO();
+  return $db->query('SELECT * FROM prodotti WHERE codice LIKE \'MINK%\'');
+}
+
 function recuperaProdottoDaCodice($codice) {
     $db = creaConnessionePDO();
 
@@ -26,6 +32,7 @@ function recuperaProdottoDaCodice($codice) {
     // esegue la query
     $stmt->execute();
 
+    // FETCH_ASSOC ==> dici a PDO che ti salvi $stmt come array associativo (in questo caso - KEY:nome colonna, VALUE:valore colonna)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
@@ -42,6 +49,7 @@ function salvaOrdine($prodotti, $utente) {
         $stmt = $db->prepare("INSERT INTO clienti (nome, cognome, email, indirizzo, citta, cap, provincia)
                               VALUES (:nome, :cognome, :email, :indirizzo, :citta, :cap, :provincia)");
 
+        // PARAMETRI SEMPRE INDICATI CON :[stringa]
         $stmt->bindParam(':nome', $utente['nome'], PDO::PARAM_STR);
         $stmt->bindParam(':cognome', $utente['cognome'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $utente['email'], PDO::PARAM_STR);
@@ -52,7 +60,7 @@ function salvaOrdine($prodotti, $utente) {
 
         $stmt->execute();
 
-        $idCliente = $db->lastInsertId();
+        $idCliente = $db->lastInsertId(); // ULTIMO ID INSERITO IN SESSIONE
 
         // inserimento in tabella ordini
         $stmt = $db->prepare("INSERT INTO ordini (cliente_id, data, totale, note)
@@ -60,7 +68,7 @@ function salvaOrdine($prodotti, $utente) {
 
         $stmt->bindParam(':cliente_id', $idCliente, PDO::PARAM_INT);
 
-        $date = date('Y-m-d H:i:s');
+        $date = date('Y-m-d H:i:s'); // GUARDARE FORMATTAZIONE DI "date" in PHP
         $stmt->bindParam(':data', $date);
 
         $totale = 0;

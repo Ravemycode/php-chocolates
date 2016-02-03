@@ -1,7 +1,8 @@
 <?php
 include 'libs/db.php';
 
-$arrayProdotti = inizializzaListaProdotti();
+// $arrayProdotti = inizializzaListaProdotti();
+$arrayProdotti = inizializzaListaProdottiMink();
 
 ?>
 <!DOCTYPE html>
