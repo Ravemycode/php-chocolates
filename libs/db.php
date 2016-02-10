@@ -108,7 +108,15 @@ function salvaOrdine($prodotti, $utente) {
         echo "Si è verificato un errore: " . $e->getMessage();
     }
 
+
     // svuotamento variabili di sessione
     unset($_SESSION['utente']);
     unset($_SESSION['carrello']);
+}
+
+
+function recuperaOrdiniTotali() {
+    $db = creaConnessionePDO();
+    // Query per recuperare i dati di tutti gli ordini
+    return $db->query('SELECT ordini.id, ordini.data, ordini.totale, clienti.nome, clienti.cognome FROM ordini, clienti WHERE ordini.cliente_id = clienti.id');
 }
