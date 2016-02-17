@@ -10,10 +10,10 @@ function creaConnessionePDO() {
 
 function inizializzaListaProdotti() {
     $db = creaConnessionePDO();
-    $stmt =  $db->prepare('SELECT * FROM prodotti');
+    $stmt =  $db->prepare('SELECT * FROM prodotti'); // prepare INVECE DI query
     $stmt->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_CLASS, 'Prodotto');
+    return $stmt->fetchAll(PDO::FETCH_CLASS, 'Prodotto'); // FETCH_CLASS invece di FETCH_ASSOC
 }
 
 function recuperaProdottoDaCodice($codice) {
