@@ -1,29 +1,35 @@
 <?php
 namespace MvLabs\Chocosite\Model;
 
+// Prodotto non è nel namespace!!! ===> USE
+use MvLabs\Chocosite\Entity\Prodotto;
+
 class Carrello {
     private $utente;
-    // $prodotti == righe carrello
-    private $prodotti = [];
-    private $quantita = 0;
+    private $righeCarrello = [];
 
-
-
-    public function aggiungiProdotto(Prodotto $prodotto, $quantita) {
-      // costruzione array che rappresenta riga carrello
+    public function aggiungiRigaCarrello(Prodotto $prodotto, $quantita) {
+      // aggiungere prodotto alla proprietà prodotti con la relativa quantità
       $rigaCarrello = [
         'prodotto' => $prodotto,
         'quantita' => $quantita
       ];
 
-      $this->prodotti[] = $rigaCarrello;
+      $this->$righeCarrello[] = $rigaCarrello;
     }
 
-    public function getProdotti() {
-      return $this->prodotti;
+    public function getRigheCarrello() {
+      return $this->$righeCarrello;
     }
 
     public function getTotali() {
+
+      foreach ($this->$righeCarrello as $rigaCarrello) {
+        // rigaCarrello = array che contiene Oggetti prodotto quantita
+        $totale += $rigaCarrello['prodotto']->prezzo() * $rigaCarrello['quantita'];
+        $quantita += $rigaCarrello['quantita'];
+      }
+
       return [
         'totale' => $totale,
         'pezzi' => $quantita

@@ -2,7 +2,8 @@
 
 namespace MvLabs\Chocosite\Entity;
 
-class Tavoletta
+// Prodotto ha lo stesso namespace di Tavoletta per cui non serve specificare
+class Tavoletta implements Prodotto
 {
     private $codice;
 
