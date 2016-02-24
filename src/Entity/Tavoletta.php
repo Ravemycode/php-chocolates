@@ -3,6 +3,7 @@
 namespace MvLabs\Chocosite\Entity;
 
 // Prodotto ha lo stesso namespace di Tavoletta per cui non serve specificare
+// Tavoletta implementa l'interfaccia Prodotto, che viene usata
 class Tavoletta implements Prodotto
 {
     private $codice;
