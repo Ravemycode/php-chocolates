@@ -15,7 +15,7 @@ class Carrello {
         'quantita' => $quantita
       ];
 
-      $this->$righeCarrello[] = $rigaCarrello;
+      $this->righeCarrello[] = $rigaCarrello;
     }
 
     public function getRigheCarrello() {
