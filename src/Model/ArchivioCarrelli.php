@@ -5,6 +5,8 @@ class ArchivioCarrelli
 {
     public function salva(Carrello $carrello)
     {
+        // Per vedere l'oggetto serializzato(formato testo con indicazione numero caratteri )
+        //var_dump(serialize($carrello));die
         $_SESSION['carrello'] = serialize($carrello);
     }
 
@@ -16,6 +18,7 @@ class ArchivioCarrelli
 
         $carrello = unserialize($_SESSION['carrello']);
 
+        // CONTROLLO PER ESSERE SICURO CHE SIA EFFETTIVAMENTE UN CARRELLO (per evitare pericoli - es: SQL injection)
         if ($carrello instanceof Carrello) {
             return $carrello;
         }
