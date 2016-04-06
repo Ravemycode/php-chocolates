@@ -10,4 +10,17 @@ namespace Prodotti\Entity\Repository;
  */
 class ProdottiRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getListaProdotti() {
+
+      $em = $this->getEntityManager();
+
+      $dql = 'SELECT p, c
+              FROM \Prodotti\Entity\Prodotto p
+              JOIN p.categoria c
+              ORDER BY p.nome';
+
+      $query = $em->CreateQuery($dql);
+      return $query->getResult();
+    }
 }
