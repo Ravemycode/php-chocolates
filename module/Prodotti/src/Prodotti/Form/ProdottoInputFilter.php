@@ -35,9 +35,9 @@ class ProdottoInputFilter extends InputFilter
                 ['name' => 'StripTags'],
                 ['name' => 'StringTrim'],
             ],
-            /*'validators' => [
-                ['name' => 'Zend\I18n\Validator\IsFloat']
-            ]*/
+            'validators' => [
+                ['name' => 'Zend\I18n\Validator\IsFloat'] /*AGGIUNTO IL 20.04.2016*/
+            ]
         ]);
 
     }
